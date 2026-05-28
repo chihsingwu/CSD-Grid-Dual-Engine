@@ -14,63 +14,70 @@ The current reference implementation focuses on **Critical Slowing Down Early Wa
 Traditional grid monitoring relies heavily on **Voltage Deviation ($V_{dev}$)**. However, as power systems integrate massive renewable energy sources, a catastrophic vulnerability emerges: **dynamic small-signal instability under weak-damping conditions**. In these scenarios, excitation controls artificially maintain nominal voltage, masking the severe degradation of the system's underlying dynamic structure. **$V_{dev}$ fails completely here, while CSD-EWS thrives**.
 
 ---
+## 🚀 Empirical Validation Results
+
+### ⚡ The Core Breakthrough: Weak Damping & Dynamic Small-Signal Instability
+Traditional grid monitoring relies heavily on **Voltage Deviation ($V_{dev}$)**. However, as power systems integrate massive renewable energy sources, a catastrophic vulnerability emerges: **dynamic small-signal instability under weak-damping conditions**. In these scenarios, excitation controls artificially maintain nominal voltage, masking the severe degradation of the system's underlying dynamic structure. **$V_{dev}$ fails completely here, while CSD-EWS thrives**.
+
+---
 
 ### 📊 Experiment 1: IEEE 39-Bus Transient Stability
-[cite_start]Validated using **ANDES v2.0.0** on the New England 39-bus system across **116 multi-fault scenarios** ($77$ stable, $39$ unstable) with a 60 Hz PMU-equivalent sampling rate[cite: 9, 10, 25].
+Validated using **ANDES v2.0.0** on the New England 39-bus system across **116 multi-fault scenarios** (77 stable, 39 unstable) with a 60 Hz PMU-equivalent sampling rate.
 
 #### 📈 Boundary Discovery & Performance
-* [cite_start]**Critical Clearing Time (CCT) Discovery**: Systematically identified the exact physical bifurcation boundary for a Bus 16 fault between **1.3s (Stable)** and **1.4s (Unstable)**[cite: 27, 28, 29].
-* [cite_start]**Pure Data-Driven Inference**: Operating **without any network topology, power flow models, or pre-trained classifiers**, Engine A achieved an exceptional **AUC-ROC of 0.8795** using rolling window metrics[cite: 38, 39].
+* **Critical Clearing Time (CCT) Discovery**: Systematically identified the exact physical bifurcation boundary for a Bus 16 fault between **1.3s (Stable)** and **1.4s (Unstable)**.
+* **Pure Data-Driven Inference**: Operating **without any network topology, power flow models, or pre-trained classifiers**, Engine A achieved an exceptional **AUC-ROC of 0.8795** using rolling window metrics.
 
 | Metric Evaluation (Post-Fault Window) | AUC-ROC |
 | :--- | :---: |
-| [cite_start]**`score_J`** (Mean $\log \max|\lambda(J)|$ - Last 20 windows) [cite: 38] | [cite_start]**0.8795** [cite: 38] |
-| [cite_start]**`score_trend`** (Rolling trend statistic slope) [cite: 38] | [cite_start]**0.8025** [cite: 38] |
-| [cite_start]**`combo`** (Weighted Composite Score) [cite: 38] | [cite_start]**0.8768** [cite: 38] |
+| **`score_J`** (Mean $\log \max|\lambda(J)|$ - Last 20 windows) | **0.8795** |
+| **`score_trend`** (Rolling trend statistic slope) | **0.8025** |
+| **`combo`** (Weighted Composite Score) | **0.8768** |
 
-* [cite_start]**Clean Binary Separation**: In single-scenario validation, the rolling trend slope provides an instantaneous binary indicator—a **positive slope** triggers immediate critical alert routing, while a **negative slope** robustly tracks system post-fault recovery[cite: 36].
+* **Clean Binary Separation**: In single-scenario validation, the rolling trend slope provides an instantaneous binary indicator—a **positive slope** triggers immediate critical alert routing, while a **negative slope** robustly tracks system post-fault recovery.
 
 ---
 
 ### 📉 Experiment 2: Kundur 4-Machine 19-Point $K_A$ Sweep (The Ultimate Proof)
-[cite_start]To simulate the absolute blind spot of conventional AI models, we executed an intensive **19-point excitation gain ($K_A$) sweep** ($K_A = 5$ to $500$) to induce progressive inter-area oscillation damping degradation near the 0.6 Hz mode[cite: 357, 361, 366].
+To simulate the absolute blind spot of conventional AI models, we executed an intensive **19-point excitation gain ($K_A$) sweep** ($K_A = 5$ to $500$) to induce progressive inter-area oscillation damping degradation near the 0.6 Hz mode.
 
 #### 🚨 Complete Dual-Engine Benchmark vs. Baseline
-[cite_start]As the excitation system works harder to maintain voltage setpoints, traditional indicators point in the **perfect opposite direction ($\rho = -0.977$)**, signaling "improved safety" while the grid's dynamic structure is actually fracturing[cite: 363, 375, 376]. [cite_start]**Engine B completely reverses this failure with near-perfect correlation ($\rho = +0.993$)**[cite: 361, 362].
+As the excitation system works harder to maintain voltage setpoints, traditional indicators point in the **perfect opposite direction ($\rho = -0.977$)**, signaling "improved safety" while the grid's dynamic structure is actually fracturing. **Engine B completely reverses this failure with near-perfect correlation ($\rho = +0.993$)**.
 
 | Method / Indicator | Domain | Spearman Correlation ($\rho$) | $p$-value | Physical Verdict |
 | :--- | :---: | :---: | :---: | :--- |
-| **Engine B LFPR** (This Work) | [cite_start]**Spectral** [cite: 363] | [cite_start]**+0.993** [cite: 363] | [cite_start]**< 0.0001** [cite: 363] | [cite_start]**Near-Perfect Primary Indicator** [cite: 363] |
-| **Combo (A+B, $0.5+0.5$)** | [cite_start]**Dual-Domain** [cite: 363] | [cite_start]**+0.974** [cite: 363] | [cite_start]**< 0.0001** [cite: 363] | [cite_start]**Excellent Robust Combination** [cite: 363] |
-| **Engine B -Entropy** | [cite_start]**Spectral** [cite: 363] | [cite_start]**-0.930** [cite: 363] | [cite_start]**< 0.0001** [cite: 363] | [cite_start]**Strong (Entropy decays as danger rises)** [cite: 363] |
-| **Engine A `score_J`** | [cite_start]**Time** [cite: 363] | [cite_start]**+0.730** [cite: 363] | [cite_start]**0.0004** [cite: 363] | [cite_start]**Significant Complementary Role** [cite: 363] |
-| *Vdev (Traditional Baseline)* | [cite_start]*Voltage* [cite: 363] | [cite_start]*-0.977* [cite: 363] | [cite_start]*< 0.0001* [cite: 363] | [cite_start]❌ **Complete Systematic Failure** [cite: 363] |
+| **Engine B LFPR** (This Work) | **Spectral** | **+0.993** | **< 0.0001** | **Near-Perfect Primary Indicator** |
+| **Combo (A+B, $0.5+0.5$)** | **Dual-Domain** | **+0.974** | **< 0.0001** | **Excellent Robust Combination** |
+| **Engine B -Entropy** | **Spectral** | **-0.930** | **< 0.0001** | **Strong (Entropy decays as danger rises)** |
+| **Engine A `score_J`** | **Time** | **+0.730** | **0.0004** | **Significant Complementary Role** |
+| *Vdev (Traditional Baseline)* | *Voltage* | *-0.977* | *< 0.0001* | ❌ **Complete Systematic Failure** |
 
 #### 🎯 Why Engine B Achieves Mathematical Supremacy ($\rho = +0.993$)
-[cite_start]Rooted in **Critical Slowing Down (CSD) theory** (Scheffer et al., Nature 2009; Podolsky & Turitsyn, 2013), as a dynamical system approaches bifurcation, energy systematically concentrates into low-frequency modes[cite: 368, 369]. 
+Rooted in **Critical Slowing Down (CSD) theory** (Scheffer et al., Nature 2009; Podolsky & Turitsyn, 2013), as a dynamical system approaches bifurcation, energy systematically concentrates into low-frequency modes. 
 
-[cite_start]Our spectral engine continuously extracts the **Low-Frequency Power Ratio (LFPR)** within a fixed $[0, 2.0\text{ Hz}]$ boundary via an optimized 120-sample FFT window[cite: 388, 389, 395]:
+Our spectral engine continuously extracts the **Low-Frequency Power Ratio (LFPR)** within a fixed $[0, 2.0\text{ Hz}]$ boundary via an optimized 120-sample FFT window:
 
 $$\text{LFPR} = \frac{\sum |F(f)|^2 \text{ for } 0 < f \le 2.0\text{ Hz}}{\sum |F(f)|^2 \text{ for all } f}$$
 
-[cite_start]As $K_A$ scales up and damping ratio drops to negative regimes, the 0.6 Hz inter-area oscillation energy grows monotonically relative to total signal energy[cite: 367, 372]. [cite_start]Engine B captures this physical redistribution with absolute precision, providing a zero-topology, PMU-only early warning system long before physical threshold violations manifest[cite: 372, 401].
+As $K_A$ scales up and damping ratio drops to negative regimes, the 0.6 Hz inter-area oscillation energy grows monotonically relative to total signal energy. Engine B captures this physical redistribution with absolute precision, providing a zero-topology, PMU-only early warning system long before physical threshold violations manifest.
 
 ---
 
 ### 🔄 The Power of the Dual-Engine Architecture
-Our framework does not rely on a single analytical domain. [cite_start]Instead, it deploys **Engine A** and **Engine B** in parallel to achieve comprehensive, multi-domain physics validation near the critical stability boundary, eliminating blind spots across all primary power system instability modes[cite: 380, 381, 382].
+Our framework does not rely on a single analytical domain. Instead, it deploys **Engine A** and **Engine B** in parallel to achieve comprehensive, multi-domain physics validation near the critical stability boundary, eliminating blind spots across all primary power system instability modes.
 
 ### 🤝 Cross-Domain Physical Complementarity
 | Instability Type | Physical Mechanism | Best Indicator | Rationale |
 | :--- | :--- | :---: | :--- |
-| **Transient Stability** (Large Disturbance) | [cite_start]Nonlinear angle divergence  | [cite_start]**Engine A (`score_J`)**  | [cite_start]Jacobian captures rapid, highly nonlinear state transitions  |
-| **Small-Signal Stability** (Weak Damping) | [cite_start]Low-freq oscillation growth  | [cite_start]**Engine B (`LFPR`)**  | [cite_start]Fourier directly measures energy redistribution into target modes  |
-| **Voltage Collapse** | [cite_start]Saddle-node bifurcation  | [cite_start]**Engine A ($\min\|\lambda\|$)**  | [cite_start]Dynamic Jacobian singularity detection  |
-| **Inter-Area Oscillation** (0.1–2 Hz) | [cite_start]Mode undamping  | [cite_start]**Engine B (`LFPR`)**  | [cite_start]Direct spectral measurement of target frequency  |
+| **Transient Stability** (Large Disturbance) | Nonlinear angle divergence | **Engine A (`score_J`)** | Jacobian captures rapid, highly nonlinear state transitions |
+| **Small-Signal Stability** (Weak Damping) | Low-freq oscillation growth | **Engine B (`LFPR`)** | Fourier directly measures energy redistribution into target modes |
+| **Voltage Collapse** | Saddle-node bifurcation | **Engine A ($\min\|\lambda\|$)** | Dynamic Jacobian singularity detection |
+| **Inter-Area Oscillation** (0.1–2 Hz) | Mode undamping | **Engine B (`LFPR`)** | Direct spectral measurement of target frequency |
 
-> [cite_start]🎯 **Dual-Engine Synergy**: Engine A and Engine B serve as independent physical implementations of Critical Slowing Down (CSD) theory[cite: 382]. By cross-checking time-domain eigenvalue trajectories against frequency-domain damping rates simultaneously, the system eliminates false positives and robustly flags anomalies before they physically manifest in the grid.
+> 🎯 **Dual-Engine Synergy**: Engine A and Engine B serve as independent physical implementations of Critical Slowing Down (CSD) theory. By cross-checking time-domain eigenvalue trajectories against frequency-domain damping rates simultaneously, the system eliminates false positives and robustly flags anomalies before they physically manifest in the grid.
 
 
+---
 
 
 
