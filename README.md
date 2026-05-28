@@ -1,18 +1,17 @@
 
-##  Ecosystem Role: Dynamic Boundary Verification for Cross-Domain Physical Foundation Models
+# Ecosystem Role: Physics-Driven Dynamic Boundary Verification for Data-Driven Power Grid AI
 
-The **CSD-dual-engine** is an open-source, zero-topology **Dynamic Verification Framework** designed to evaluate, benchmark, and constrain emerging **Cross-Domain Physical Foundation Models** when transferring learned continuous control trajectories into high-penetration, lower-inertia power grid environments.
+The **CSD-dual-engine** is an open-source, zero-topology **Dynamic Verification Framework** designed to evaluate, benchmark, and provide real-time physical constraints for continuous data-driven control, time-series forecasting, and foundation models operating within high-penetration, lower-inertia power networks.
 
-### 🎯 The Core Rationale: Resolving the "Sim2Real & Domain-Transfer" Blind Spot
-While state-of-the-art foundation models excel at macro-level policy inference and multi-variable optimization across continuous spatial domains, they inherently operate as black-box probabilistic generators. When adapted to power electronic-interfaced power networks, out-of-distribution neural control commands pose a severe risk of inducing catastrophic, un-damped electromechanical oscillations or triggering hidden bifurcations.
+### 🎯 The Core Rationale: A Non-Invasive Physics Guardrail for AI Controls
+As advanced deep learning architectures and foundation models become increasingly integrated into operational grid optimization—whether through native power system spatial modeling or cross-domain policy transfer—they inherently operate as probabilistic text/action generators. In complex, low-inertia networks, any out-of-distribution neural prediction risks inducing catastrophic, un-damped electromechanical oscillations or triggering hidden bifurcations.
 
-To ensure operational viability before down-stream physical deployment, this framework establishes a rigorous, physics-driven **Evaluation & Guardrail Layer**:
-* **The Generative Layer (The Foundation Model)**: Executes predictive tracking, cross-domain technical adaptation, and optimization policies.
-* **The Physics Guardrail (CSD-Dual-Engine)**: Continuously benchmarks the model's control trajectories against fundamental physical invariants in near real-time. By tracking the exact state-space proximity to critical transitions via time-domain and spectral-domain metrics, it isolates systemic vulnerabilities *before* physical system thresholds are violated.
-
-
+To bridge the gap between deep learning outputs and critical infrastructure safety, this framework provides a zero-topology, physics-driven **Evaluation & Guardrail Layer**[cite: 1]:
+* **The Predictive Layer**: Executes advanced policy inference, predictive tracking, and multi-variable optimization trajectories (applicable to all native or transferred network AI models).
+* **The Physics Guardrail (CSD-Dual-Engine)**: Continuously benchmarks the AI-generated trajectories against fundamental physical invariants in near real-time. By tracking the exact state-space proximity to critical transitions via parallel time-domain and spectral-domain metrics, it isolates dynamic stability failure modes *before* actual system hardware thresholds are violated.
 
 ---
+
 
 ###  Scope, Technical Boundaries & Numerical Rigor
 To satisfy the rigorous verification requirements of joint critical infrastructure deployments, this release establishes explicit operational boundaries:
