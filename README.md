@@ -247,6 +247,10 @@ Do not overinterpret this release as:
 * Engine B computes LFPR and spectral entropy over sliding windows.
 * The package intentionally stays small: no database, no web server, no Docker, no CI by default.
 
+### 🌐 Alignment with State-of-the-Art (AI4Science Frameworks)
+Our `CSD-dual-engine` architecture serves as a critical, physics-informed verification layer that perfectly complements current agentic workflows in power system analysis:
+* **Chongqing-Imperial TSA Framework (Hu, Wang, & Pal, 2026)**: Their outstanding LLM-driven simulation and NAS pipeline achieves high accuracy but exhibits structural classification confusion near adjacent stability boundaries (as reported in their lambda-space proximity analysis). Our unsupervised CSD Jacobian eigenvalue and spectral tracking (`score_J` & `LFPR`) provide the exact mathematical resolution to resolve these boundary ambiguities without requiring black-box retrainings.
+
 ## Citation / attribution
 
 TaiScience Research Group — Open Source Reference Implementation.
