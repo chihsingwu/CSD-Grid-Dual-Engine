@@ -1,7 +1,7 @@
 
 # CSD-Dual-Engine: Physics-Driven Dynamic Boundary Verification for Power Grid Foundation Models
 
-The **CSD-dual-engine** is an open-source, zero-topology **Dynamic Verification Framework** designed to evaluate, benchmark, and provide real-time physical constraints for continuous data-driven control, time-series forecasting, and foundation models operating within high-penetration, lower-inertia electrical power networks. **Instability precursors often reside in high-frequency spectral structure that tokenization-based models tend to smooth away; spectral entropy recovers this by measuring the full eigenvalue.
+The **CSD-dual-engine** is an open-source, zero-topology **Dynamic Verification Framework** designed to evaluate, benchmark, and provide real-time physical constraints for continuous data-driven control, time-series forecasting, and foundation models operating within high-penetration, lower-inertia electrical power networks. Instability precursors often reside in high-frequency spectral structure that tokenization-based models tend to smooth away; spectral entropy recovers this by measuring the full eigenvalue.
 ## Related Preprint
 
 The CSD dual-engine framework is further evaluated for topology-free power-system stability assessment, including large-scale Microsoft GridSFM scenarios, in:
