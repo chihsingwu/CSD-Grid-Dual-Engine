@@ -1,7 +1,12 @@
 
 # CSD-Dual-Engine: Physics-Driven Dynamic Boundary Verification for Power Grid Foundation Models
 
-The **CSD-dual-engine** is an open-source, zero-topology **Dynamic Verification Framework** designed to evaluate, benchmark, and provide real-time physical constraints for continuous data-driven control, time-series forecasting, and foundation models operating within high-penetration, lower-inertia electrical power networks. **Instability precursors often reside in high-frequency spectral structure that tokenization-based models tend to smooth away; spectral entropy recovers this by measuring the full eigenvalue distribution.**
+The **CSD-dual-engine** is an open-source, zero-topology **Dynamic Verification Framework** designed to evaluate, benchmark, and provide real-time physical constraints for continuous data-driven control, time-series forecasting, and foundation models operating within high-penetration, lower-inertia electrical power networks. **Instability precursors often reside in high-frequency spectral structure that tokenization-based models tend to smooth away; spectral entropy recovers this by measuring the full eigenvalue **Structural and Spectral Criticality Observables for Topology-Free Power System Stability Assessment**  
+JC Wu, Steven Anderson, and Kai-Siang Chen  
+*Research Square*, 2026.
+The study evaluates structural (Jacobian-based) and spectral criticality observables across IEEE 39-bus, Kundur, GridSFM Texas/California, and noisy delayed-voltage-collapse scenarios.
+- Preprint: https://www.researchsquare.com/article/rs-10529105/v1
+- DOI: https://doi.org/10.21203/rs.3.rs-10529105/v1
 
 ### 🎯 The Core Rationale: A Non-Invasive Physics Guardrail for AI Controls
 As advanced deep learning architectures and foundation models become increasingly integrated into operational grid optimization—whether through native power system spatial modeling or cross-domain policy transfer—they inherently operate as probabilistic text/action generators. In complex, low-inertia networks, any out-of-distribution neural prediction risks inducing catastrophic, un-damped electromechanical oscillations or triggering hidden bifurcations.
@@ -9,12 +14,7 @@ As advanced deep learning architectures and foundation models become increasingl
 To bridge the gap between deep learning outputs and critical infrastructure safety, this framework provides a zero-topology, physics-driven **Evaluation & Guardrail Layer**:
 * **The Predictive Layer**: Executes advanced policy inference, predictive tracking, and multi-variable optimization trajectories (applicable to all native or transferred network AI models).
 * **The Physics Guardrail (CSD-Dual-Engine)**: Continuously benchmarks the AI-generated trajectories against fundamental physical invariants in near real-time. By tracking the exact state-space proximity to critical transitions via parallel time-domain and spectral-domain metrics, it isolates dynamic stability failure modes *before* actual system hardware thresholds are violated.
-**Structural and Spectral Criticality Observables for Topology-Free Power System Stability Assessment**  
-JC Wu, Steven Anderson, and Kai-Siang Chen  
-*Research Square*, 2026.
-The study evaluates structural (Jacobian-based) and spectral criticality observables across IEEE 39-bus, Kundur, GridSFM Texas/California, and noisy delayed-voltage-collapse scenarios.
-- Preprint: https://www.researchsquare.com/article/rs-10529105/v1
-- DOI: https://doi.org/10.21203/rs.3.rs-10529105/v1
+
 
 ---
 
