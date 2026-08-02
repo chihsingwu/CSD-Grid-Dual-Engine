@@ -9,6 +9,12 @@ As advanced deep learning architectures and foundation models become increasingl
 To bridge the gap between deep learning outputs and critical infrastructure safety, this framework provides a zero-topology, physics-driven **Evaluation & Guardrail Layer**:
 * **The Predictive Layer**: Executes advanced policy inference, predictive tracking, and multi-variable optimization trajectories (applicable to all native or transferred network AI models).
 * **The Physics Guardrail (CSD-Dual-Engine)**: Continuously benchmarks the AI-generated trajectories against fundamental physical invariants in near real-time. By tracking the exact state-space proximity to critical transitions via parallel time-domain and spectral-domain metrics, it isolates dynamic stability failure modes *before* actual system hardware thresholds are violated.
+**Structural and Spectral Criticality Observables for Topology-Free Power System Stability Assessment**  
+JC Wu, Steven Anderson, and Kai-Siang Chen  
+*Research Square*, 2026.
+The study evaluates structural (Jacobian-based) and spectral criticality observables across IEEE 39-bus, Kundur, GridSFM Texas/California, and noisy delayed-voltage-collapse scenarios.
+- Preprint: https://www.researchsquare.com/article/rs-10529105/v1
+- DOI: https://doi.org/10.21203/rs.3.rs-10529105/v1
 
 ---
 
@@ -307,14 +313,8 @@ TaiScience Research Group. Physical Boundary Validation for Grid AI: CSD-EWS Dua
 
 The CSD dual-engine framework is further evaluated for topology-free power-system stability assessment, including large-scale Microsoft GridSFM scenarios, in:
 
-**Structural and Spectral Criticality Observables for Topology-Free Power System Stability Assessment**  
-JC Wu, Steven Anderson, and Kai-Siang Chen  
-*Research Square*, 2026.
 
-- Preprint: https://www.researchsquare.com/article/rs-10529105/v1
-- DOI: https://doi.org/10.21203/rs.3.rs-10529105/v1
 
-The study evaluates structural (Jacobian-based) and spectral criticality observables across IEEE 39-bus, Kundur, GridSFM Texas/California, and noisy delayed-voltage-collapse scenarios.
 
 ## 
 
